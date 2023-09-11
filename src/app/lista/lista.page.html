@@ -1,0 +1,36 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title>Clase registrada con exito!</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<div class="container">
+  <div *ngIf="qrData" class="datos-qr">
+    <p><strong>Nombre del Profesor:</strong> {{ qrData['Nombre Profesor'] }}</p>
+    <p><strong>Sala:</strong> {{ qrData['sala'] }}</p>
+    <p><strong>Día:</strong> {{ qrData['Dia'] }}</p>
+    <p><strong>Hora:</strong> {{ qrData['Hora'] }}</p>
+  </div>
+
+  <div *ngFor="let usuario of usuarios" class="datos-alumno">
+    <p><strong>Nombre de Alumno:</strong> {{ usuario.nombre }}</p>
+    <p><strong>RUT:</strong> {{ usuario.rut }}</p>
+  </div>
+
+  <div *ngIf="!qrData" class="datos-qr">
+    <p>No se encontraron datos del código QR.</p>
+  </div>
+
+  <div class="hora-actual">
+    <p><strong>Hora Actual:</strong> {{ horaActual }}</p>
+  </div>
+
+
+
+
+<ion-buttons class="" slot="end">
+  <ion-button [routerLink]="['/login']" size="small">Salir</ion-button>
+</ion-buttons>
+</div>
+
+
